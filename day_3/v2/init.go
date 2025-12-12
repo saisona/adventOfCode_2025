@@ -1,12 +1,14 @@
-package day3
+package day_3
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 
 	"github.com/saisona/AdventOfCode2025/helper"
 )
 
+// bestNumberInStringV2 is the same function as for day_3.bestNumberInString but for part II
 func bestNumberInString(line string) int {
 	line = line[:len(line)-1]
 
@@ -23,14 +25,14 @@ func bestNumberInString(line string) int {
 			dPtr = ptr2
 			uPtr = dPtr + 1
 			ptr2 = uPtr
-			// fmt.Printf("d=%d u=%d\n", dPtr, uPtr)
+			fmt.Printf("d=%d u=%d\n", dPtr, uPtr)
 			continue
 		}
 
 		// Check units
-		if line[ptr2] > line[uPtr] {
+		if ptr2 < len(line)-12 && line[ptr2] > line[uPtr] {
 			uPtr = ptr2
-			// fmt.Printf("u=%d\n", uPtr)
+			fmt.Printf("u=%d\n", uPtr)
 		}
 
 		ptr2++
@@ -45,6 +47,7 @@ func bestNumberInString(line string) int {
 	return intVal
 }
 
+// Solver part II of the day_3 of AdventOfCode2025
 func Solver(path string) int {
 	values, err := helper.GetInput(3, path)
 	if err != nil {
