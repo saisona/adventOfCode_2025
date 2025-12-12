@@ -4,9 +4,8 @@ import (
 	"flag"
 	"fmt"
 
-	_ "github.com/saisona/AdventOfCode2025/day_1"
-	_ "github.com/saisona/AdventOfCode2025/day_2"
-	day3 "github.com/saisona/AdventOfCode2025/day_3"
+	// day1 "github.com/saisona/AdventOfCode2025/day_1"
+	day1 "github.com/saisona/AdventOfCode2025/day_1/v2"
 )
 
 var inputfile = flag.String("input", "", "file to read input")
@@ -18,8 +17,9 @@ func main() {
 		panic("input file should be given")
 	}
 
-	// _ = day1.Solver(os.Args[1])
+	res := day1.Solver(*inputfile)
 	// res := day2.Solver(*inputfile)
-	res := day3.Solver(*inputfile)
+	// res := day3.Solver(*inputfile)
+	// res := day4.Solver(*inputfile)
 	fmt.Println("Res=", res)
 }
